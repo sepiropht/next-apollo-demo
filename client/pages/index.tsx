@@ -8,13 +8,13 @@ const Page = ({ countries }) => (
         <h3>
           <a
             href="#country-name"
-            ariaHidden="true"
-            class="aal_anchor"
+            aria-hidden="true"
+            className="aal_anchor"
             id="country-name"
           >
             <svg
-              ariaHidden="true"
-              class="aal_svg"
+              aria-hidden="true"
+              className="aal_svg"
               height="16"
               version="1.1"
               viewBox="0 0 16 16"
