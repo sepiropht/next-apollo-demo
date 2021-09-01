@@ -16,7 +16,7 @@ const typeDefs = gql`
 const persons = []
 for (let i = 0; i < 2000; i++) {
   persons.push({
-    name: casual.name,
+    name: casual.full_name,
     address: casual.address,
     email: casual.email,
     phone: casual.phone,
