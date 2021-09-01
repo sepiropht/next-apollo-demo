@@ -1,10 +1,10 @@
 import client from '../lib/client'
 import { gql } from '@apollo/client'
 
-const Page = ({ countries }) => (
+const Page = ({ persons }) => (
   <div>
-    {countries.map((country) => (
-      <div key={country.code}>
+    {persons.map((person, index) => (
+      <div key={index}>
         <h3>
           <a
             href="#country-name"
@@ -26,10 +26,10 @@ const Page = ({ countries }) => (
               ></path>
             </svg>
           </a>
-          {country.name}
+          {person.name}
         </h3>
         <p>
-          {country.code} - {country.emoji}
+          {person.phone} - {person.email}
         </p>
       </div>
     ))}
@@ -39,11 +39,12 @@ const Page = ({ countries }) => (
 export async function getStaticProps() {
   const { data } = await client.query({
     query: gql`
-      query Countries {
-        countries {
-          code
+      query Person {
+        persons {
           name
-          emoji
+          address
+          email
+          phone
         }
       }
     `,
@@ -51,7 +52,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      countries: data.countries.slice(0, 4),
+      persons: data.persons.slice(0, 4),
     },
   }
 }
