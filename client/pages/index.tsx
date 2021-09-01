@@ -6,7 +6,7 @@ import Card from '../components/Card'
 const Page = ({ persons }) => (
   <ChakraProvider>
     <Container maxW="80rem" centerContent>
-      <SimpleGrid columns={[1, 2, 1, 2]}>
+      <SimpleGrid columns={[1, 2, 3, 4]}>
         {persons.map(({ name, phone, email, address }, index) => {
           return (
             <Card
@@ -39,7 +39,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      persons: data.persons.slice(0, 4),
+      persons: data.persons,
     },
   }
 }

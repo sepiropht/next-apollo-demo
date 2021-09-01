@@ -1,14 +1,5 @@
 import React from 'react'
-import {
-  Box,
-  Flex,
-  AspectRatio,
-  Image,
-  Text,
-  Link,
-  Button,
-  Stack,
-} from '@chakra-ui/react'
+import { Box, Text, Link, Stack } from '@chakra-ui/react'
 
 interface Cardprops {
   name: string
