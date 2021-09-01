@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import client from '../lib/client'
 import { gql } from '@apollo/client'
-import { ChakraProvider, SimpleGrid, Container, Input } from '@chakra-ui/react'
-import Card from '../components/Card'
+import { ChakraProvider, Container, Input } from '@chakra-ui/react'
+import Grid from '../components/Grid'
 
 const Page = ({ persons }) => {
   const [searchTerm, setSearch] = useState('')
@@ -13,26 +13,7 @@ const Page = ({ persons }) => {
           placeholder="Search user"
           onChange={(e) => setSearch(e.target.value)}
         />
-        <SimpleGrid columns={[1, 2, 3, 4]}>
-          {persons
-            .filter(
-              ({ name }) =>
-                (searchTerm.length > 2 &&
-                  name.toLowerCase().startsWith(searchTerm.slice(0, 3))) ||
-                searchTerm.length < 3
-            )
-            .map(({ name, phone, email, address }, index) => {
-              return (
-                <Card
-                  key={index}
-                  name={name}
-                  phone={phone}
-                  email={email}
-                  address={address}
-                />
-              )
-            })}
-        </SimpleGrid>
+        <Grid persons={persons} searchTerm={searchTerm}></Grid>
       </Container>
     </ChakraProvider>
   )
@@ -54,7 +35,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      persons: data.persons,
+      persons: data.persons.slice(0, 20),
     },
   }
 }
