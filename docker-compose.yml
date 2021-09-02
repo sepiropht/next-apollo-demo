@@ -8,6 +8,8 @@ services:
       - .:/server/app
   client:
     build: ./client
+    depends_on:
+      - api
     ports:
       - '3000:3000'
     volumes:

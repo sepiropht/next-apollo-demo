@@ -4,11 +4,7 @@ WORKDIR /app
 COPY package.json ./
 COPY ./ ./
 
-
-ENV NODE_ENV production
-
-
-RUN yarn install --frozen-lockfile
+RUN yarn
 EXPOSE 3000
 
-CMD ["yarn", "build"]
+CMD ["yarn", "dev"]

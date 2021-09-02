@@ -4,8 +4,12 @@
 
 Backend is deployed to heroku and frontend on vercel
 
+## Run locally
+
+Run server and client
+
 ```docker compose
-                        // in root directory
+   docker-compose up --build   // in root directory
 ```
 
 ## Features done

@@ -14,14 +14,9 @@ const main = async () => {
 
   const port = process.env.PORT || 5000
 
-  app.use(
-    cors({
-      origin: process.env,
-    })
-  )
   app.listen(port, (err) => {
     if (err) throw err
-    console.log(`Graphql Server started on: http://localhost:${port}`)
+    console.log(`Graphql Server started on : http://localhost:${port}`)
   })
 }
 
